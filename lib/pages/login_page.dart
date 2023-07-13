@@ -24,8 +24,8 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Container(
         width: double.infinity,
         color: Colors.blueGrey[50],
-        child: const Column(
-          children: [
+        child:  Column(
+          children: const [
             SizedBox(
               height: 150,
             ),

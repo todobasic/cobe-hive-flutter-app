@@ -33,7 +33,7 @@ class UserCard extends StatelessWidget {
                       fit: BoxFit.fill,
                     ),
                   ),
-                  if (user.isOnline)
+                  if (user.isOnline) 
                     Positioned(
                       right: 5,
                       top: 5,

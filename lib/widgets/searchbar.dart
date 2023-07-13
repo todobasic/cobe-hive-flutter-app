@@ -1,4 +1,6 @@
+import 'package:cobe_task/filtered_list_notifier.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Searchbar extends StatelessWidget {
   const Searchbar({
@@ -7,6 +9,9 @@ class Searchbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final searchFilter =
+        Provider.of<FilteredListNotifier>(context, listen: false);
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
       child: TextField(
@@ -22,6 +27,9 @@ class Searchbar extends StatelessWidget {
                 const TextStyle(color: Colors.grey, fontFamily: 'FilsonPro'),
             prefixIcon: const Icon(Icons.search),
             prefixIconColor: Colors.grey),
+        onChanged: (value) {
+          searchFilter.onSearchTermChanged(value);
+        },
       ),
     );
   }
