@@ -1,4 +1,4 @@
-import 'package:cobe_task/providers/users_notifier.dart';
+import 'package:cobe_task/providers/search_term_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -12,21 +12,21 @@ class Searchbar extends ConsumerWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
       child: TextField(
-          style: const TextStyle(color: Colors.grey),
-          decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide.none),
-              hintText: 'Search...',
-              hintStyle:
-                  const TextStyle(color: Colors.grey, fontFamily: 'FilsonPro'),
-              prefixIcon: const Icon(Icons.search),
-              prefixIconColor: Colors.grey),
-          onChanged: (value) {
-            ref.read(usersProvider.notifier).onSearchTermChanged(value);
-          }),
+        style: const TextStyle(color: Colors.grey),
+        decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.white,
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+                borderSide: BorderSide.none),
+            hintText: 'Search...',
+            hintStyle:
+                const TextStyle(color: Colors.grey, fontFamily: 'FilsonPro'),
+            prefixIcon: const Icon(Icons.search),
+            prefixIconColor: Colors.grey),
+        onChanged: (search) =>
+            ref.read(searchTermProvider.notifier).state = search,
+      ),
     );
   }
 }

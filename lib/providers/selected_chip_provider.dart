@@ -1,9 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final selectedChipsProvider =
-    StateNotifierProvider<SelectedChipsNotifier, List<String>>((ref) {
-  return SelectedChipsNotifier();
-});
+final selectedChipsNotifierProvider =
+    StateNotifierProvider<SelectedChipsNotifier, List<String>>(
+  (_) => SelectedChipsNotifier(),
+);
 
 class SelectedChipsNotifier extends StateNotifier<List<String>> {
   SelectedChipsNotifier() : super([]);

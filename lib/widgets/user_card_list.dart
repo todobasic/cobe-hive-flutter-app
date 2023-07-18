@@ -1,4 +1,4 @@
-import 'package:cobe_task/providers/users_notifier.dart';
+import 'package:cobe_task/providers/filtered_users_provider.dart';
 import 'package:cobe_task/user_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,7 +8,9 @@ class UserCardList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final users = ref.watch(usersProvider);
+    final users = ref.watch(filteredUsersProvider);
+    // ignore: avoid_print
+    print(users.length);
     return Expanded(
       child: ListView.separated(
           padding: EdgeInsets.zero,

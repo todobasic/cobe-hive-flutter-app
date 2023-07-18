@@ -1,5 +1,4 @@
-import 'package:cobe_task/providers/selected_chip_notifier.dart';
-import 'package:cobe_task/providers/users_notifier.dart';
+import 'package:cobe_task/providers/selected_chip_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -18,7 +17,7 @@ class FiltersList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ('FiltersList build called');
-    final selectedFilters = ref.watch(selectedChipsProvider);
+    final selectedFilters = ref.watch(selectedChipsNotifierProvider);
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Padding(
@@ -52,18 +51,10 @@ class FiltersList extends ConsumerWidget {
                     selectedShadowColor: const Color.fromRGBO(0, 186, 136, 0.3),
                     showCheckmark: false,
                     selected: isSelected,
-                    onSelected: (selected) {
-                      if (selected && !selectedFilters.contains(filter)) {
-                        ref.read(usersProvider.notifier).addChip(filter);
-                        ref
-                            .read(selectedChipsProvider.notifier)
-                            .toggleChip(filter);
-                      } else if (selectedFilters.contains(filter)) {
-                        ref.read(usersProvider.notifier).removeChip(filter);
-                        ref
-                            .read(selectedChipsProvider.notifier)
-                            .toggleChip(filter);
-                      }
+                    onSelected: (_) {
+                      ref
+                          .read(selectedChipsNotifierProvider.notifier)
+                          .toggleChip(filter);
                       debugPrint('$selectedFilters');
                     },
                   );
