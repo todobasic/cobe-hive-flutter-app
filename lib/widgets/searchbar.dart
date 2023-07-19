@@ -1,12 +1,14 @@
+import 'package:cobe_task/providers/search_term_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class Searchbar extends StatelessWidget {
+class Searchbar extends ConsumerWidget {
   const Searchbar({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
       child: TextField(
@@ -22,6 +24,8 @@ class Searchbar extends StatelessWidget {
                 const TextStyle(color: Colors.grey, fontFamily: 'FilsonPro'),
             prefixIcon: const Icon(Icons.search),
             prefixIconColor: Colors.grey),
+        onChanged: (search) =>
+            ref.read(searchTermProvider.notifier).state = search,
       ),
     );
   }

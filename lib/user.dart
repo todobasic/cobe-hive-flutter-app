@@ -2,13 +2,13 @@ class User {
   String name = '';
   String description = '';
   String imageUrl = '';
-  String status = '';
+  List<String> statusList = [];
   late bool isOnline;
 
   User(
       {required this.name,
       required this.description,
       required this.imageUrl,
-      required this.status,
+      required this.statusList,
       required this.isOnline});
 }

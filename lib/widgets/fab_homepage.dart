@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// ignore: camel_case_types
 class FAB_homepage extends StatelessWidget {
   const FAB_homepage({
     super.key,
