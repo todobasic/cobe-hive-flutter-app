@@ -50,7 +50,7 @@ class _FiltersListState extends State<FiltersList> {
               ),
             ),
           ),
-          backgroundColor: const Color(0x00f2f7ff),
+          backgroundColor: const Color(0xfff2f7ff),
           shape: StadiumBorder(
             side: BorderSide(
                 color: isSelected

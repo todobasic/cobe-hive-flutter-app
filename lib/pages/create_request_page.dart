@@ -1,3 +1,9 @@
+import 'package:cobe_task/widgets/create%20request%20widgets/create_request_button.dart';
+import 'package:cobe_task/widgets/create%20request%20widgets/create_request_header.dart';
+import 'package:cobe_task/widgets/create%20request%20widgets/date_picker.dart';
+import 'package:cobe_task/widgets/create%20request%20widgets/permission_selectors.dart';
+import 'package:cobe_task/widgets/create%20request%20widgets/reason_text_field.dart';
+import 'package:cobe_task/widgets/create%20request%20widgets/type_of_leave_selector.dart';
 import 'package:flutter/material.dart';
 
 class CreateRequestScreen extends StatelessWidget {
@@ -6,39 +12,36 @@ class CreateRequestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 80, 40, 18),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: 28,
-                  height: 28,
-                  child: IconButton(
-                    onPressed: Navigator.of(context).pop,
-                    icon: const Icon(Icons.arrow_back_ios),
-                  ),
-                ),
-                const Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 7),
-                    child: Text(
-                      'Create Request',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontFamily: 'FilsonPro',
-                        fontSize: 22,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+      body: Container(
+        color: const Color(0xfff2f7ff),
+        child: const Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.fromLTRB(16, 80, 40, 18),
+              child: CreateRequestHeader(),
             ),
-          )
-        ],
+            Padding(
+              padding: EdgeInsets.fromLTRB(17, 44, 14, 0),
+              child: TypeOfLeaveSelector(),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(17, 10, 14, 0),
+              child: DatePicker(),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(17, 20, 14, 0),
+              child: ReasonTextField(),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(17, 25, 14, 0),
+              child: PermissionSelectors(),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(17, 85, 14, 0),
+              child: CreateRequestButtons(),
+            )
+          ],
+        ),
       ),
     );
   }

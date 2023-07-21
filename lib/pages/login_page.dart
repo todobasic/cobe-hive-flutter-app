@@ -1,8 +1,8 @@
+import 'package:cobe_task/widgets/login%20page%20widgets/cobelogo.dart';
+import 'package:cobe_task/widgets/login%20page%20widgets/loginbutton.dart';
+import 'package:cobe_task/widgets/login%20page%20widgets/passwordtextfield.dart';
 import 'package:flutter/material.dart';
-import 'package:cobe_task/widgets/cobelogo.dart';
-import 'package:cobe_task/widgets/emailtextfield.dart';
-import 'package:cobe_task/widgets/passwordtextfield.dart';
-import 'package:cobe_task/widgets/loginbutton.dart';
+import 'package:cobe_task/widgets/login page widgets/emailtextfield.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -23,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Container(
         width: double.infinity,
-        color: Colors.blueGrey[50],
+        color: const Color(0xfff2f7ff),
         child: const Column(
           children: [
             SizedBox(
