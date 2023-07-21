@@ -24,16 +24,18 @@ class CreateRequestButtons extends ConsumerWidget {
                   .read(createdLeaveRequestsProvider.notifier)
                   .addRequest(request);
               showDialog(
-                  context: context,
-                  builder: (context) => const ShowAlertDialog());
+                context: context,
+                builder: (context) => const ShowAlertDialog(),
+              );
               debugPrint('$newRequest');
             },
             style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.deepOrange,
-                shadowColor: const Color.fromRGBO(252, 68, 2, 0.31),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                )),
+              backgroundColor: Colors.deepOrange,
+              shadowColor: const Color.fromRGBO(252, 68, 2, 0.31),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
             child: const Text(
               'Save',
               style: TextStyle(
@@ -42,19 +44,21 @@ class CreateRequestButtons extends ConsumerWidget {
           ),
         ),
         SizedBox(
-            width: 100,
-            height: 45,
-            child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xfff2f7ff), elevation: 0),
-                onPressed: () {},
-                child: const Text(
-                  'Discard',
-                  style: TextStyle(
-                      fontFamily: 'FilsonPro',
-                      fontSize: 17,
-                      color: Colors.deepOrange),
-                )))
+          width: 100,
+          height: 45,
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xfff2f7ff), elevation: 0),
+            onPressed: () {},
+            child: const Text(
+              'Discard',
+              style: TextStyle(
+                  fontFamily: 'FilsonPro',
+                  fontSize: 17,
+                  color: Colors.deepOrange),
+            ),
+          ),
+        )
       ],
     );
   }

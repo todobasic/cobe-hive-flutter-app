@@ -36,16 +36,19 @@ class _NoRequests extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SizedBox(
-        height: 150,
-        child: Center(
-            child: Text(
+      height: 150,
+      child: Center(
+        child: Text(
           'No Requests at the moment',
           style: TextStyle(
-              fontSize: 25,
-              fontFamily: 'FilsonPro',
-              fontWeight: FontWeight.w400,
-              color: Color(0xff3D4766)),
+            fontSize: 25,
+            fontFamily: 'FilsonPro',
+            fontWeight: FontWeight.w400,
+            color: Color(0xff3D4766),
+          ),
           textAlign: TextAlign.center,
-        )));
+        ),
+      ),
+    );
   }
 }

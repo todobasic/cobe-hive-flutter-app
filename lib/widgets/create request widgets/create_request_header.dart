@@ -27,9 +27,10 @@ class CreateRequestHeader extends StatelessWidget {
               'Create Request',
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontFamily: 'FilsonPro',
-                  fontSize: 22,
-                  color: Color(0xff3D4766)),
+                fontFamily: 'FilsonPro',
+                fontSize: 22,
+                color: Color(0xff3D4766),
+              ),
             ),
           ),
         ),

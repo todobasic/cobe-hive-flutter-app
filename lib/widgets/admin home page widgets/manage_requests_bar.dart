@@ -22,7 +22,10 @@ class ManageRequestsBar extends StatelessWidget {
         Text(
           'See all',
           style: TextStyle(
-              fontFamily: 'FilsonPro', fontSize: 15, color: Colors.deepOrange),
+            fontFamily: 'FilsonPro',
+            fontSize: 15,
+            color: Colors.deepOrange,
+          ),
         )
       ],
     );

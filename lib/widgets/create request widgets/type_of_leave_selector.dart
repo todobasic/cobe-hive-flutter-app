@@ -12,18 +12,16 @@ class TypeOfLeaveSelector extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedLeaveType = ref.watch(leaveTypeNotifierProvider);
     return GestureDetector(
-      onTap: () {
-        showModalBottomSheet(
-            showDragHandle: true,
-            isScrollControlled: true,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            context: context,
-            builder: (context) {
-              return const TypeOfLeaveList();
-            });
-      },
+      onTap: () => showModalBottomSheet(
+          showDragHandle: true,
+          isScrollControlled: true,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          context: context,
+          builder: (context) {
+            return const TypeOfLeaveList();
+          }),
       child: Container(
         height: 50,
         decoration: BoxDecoration(

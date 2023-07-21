@@ -13,6 +13,7 @@ class AdminHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: const FAB_homepage(),
       body: Container(
         color: const Color(0xfff2f7ff),
         child: Column(
@@ -45,7 +46,6 @@ class AdminHomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: const FAB_homepage(),
     );
   }
 }

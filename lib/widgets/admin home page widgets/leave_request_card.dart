@@ -2,7 +2,10 @@ import 'package:cobe_task/leave_request.dart';
 import 'package:flutter/material.dart';
 
 class LeaveRequestCard extends StatelessWidget {
-  const LeaveRequestCard({super.key, required this.leaveRequest});
+  const LeaveRequestCard({
+    super.key,
+    required this.leaveRequest,
+  });
 
   final LeaveRequest leaveRequest;
 
@@ -49,14 +52,16 @@ class LeaveRequestCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8),
                       color: Colors.amber),
                   child: const Padding(
-                      padding: EdgeInsets.fromLTRB(10, 6, 10, 6),
-                      child: Text(
-                        'Pending',
-                        style: TextStyle(
-                            fontFamily: 'FilsonPro',
-                            fontSize: 13,
-                            color: Colors.white),
-                      )),
+                    padding: EdgeInsets.fromLTRB(10, 6, 10, 6),
+                    child: Text(
+                      'Pending',
+                      style: TextStyle(
+                        fontFamily: 'FilsonPro',
+                        fontSize: 13,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
                 ),
                 const Spacer(),
                 SizedBox(
@@ -67,7 +72,8 @@ class LeaveRequestCard extends StatelessWidget {
                       style: ButtonStyle(
                         elevation: MaterialStateProperty.all(0),
                         backgroundColor: MaterialStateProperty.all<Color>(
-                            const Color(0xffE8EEFA)),
+                          const Color(0xffE8EEFA),
+                        ),
                         padding: MaterialStateProperty.all(EdgeInsets.zero),
                       ),
                       onPressed: () {},
