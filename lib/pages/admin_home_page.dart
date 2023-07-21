@@ -1,3 +1,5 @@
+import 'package:cobe_task/widgets/admin%20home%20page%20widgets/leave_request_list.dart';
+import 'package:cobe_task/widgets/admin%20home%20page%20widgets/manage_requests_bar.dart';
 import 'package:cobe_task/widgets/home%20page%20widgets/fab_homepage.dart';
 import 'package:cobe_task/widgets/home%20page%20widgets/filterslist.dart';
 import 'package:cobe_task/widgets/home%20page%20widgets/homebar.dart';
@@ -5,22 +7,13 @@ import 'package:cobe_task/widgets/home%20page%20widgets/searchbar.dart';
 import 'package:cobe_task/widgets/home%20page%20widgets/user_card_list.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  @override
-  void initState() {
-    super.initState();
-  }
+class AdminHomeScreen extends StatelessWidget {
+  const AdminHomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: const FAB_homepage(),
       body: Container(
         color: const Color(0xfff2f7ff),
         child: Column(
@@ -29,6 +22,12 @@ class _HomeScreenState extends State<HomeScreen> {
               margin: const EdgeInsets.fromLTRB(20.0, 50.0, 20.0, 0),
               child: const HomeBar(),
             ),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
+              child: ManageRequestsBar(),
+            ),
+            const SizedBox(height: 15),
+            const LeaveRequestList(),
             const SizedBox(
               height: 20.0,
             ),
@@ -47,7 +46,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      floatingActionButton: const FAB_homepage(),
     );
   }
 }

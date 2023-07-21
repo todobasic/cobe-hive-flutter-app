@@ -1,8 +1,7 @@
 // ignore_for_file: avoid_print
-
-import 'package:cobe_task/providers/search_term_provider.dart';
-import 'package:cobe_task/providers/selected_chip_provider.dart';
-import 'package:cobe_task/providers/users_provider.dart';
+import 'package:cobe_task/providers/home%20page%20providers/search_term_provider.dart';
+import 'package:cobe_task/providers/home%20page%20providers/selected_chip_provider.dart';
+import 'package:cobe_task/providers/home%20page%20providers/users_provider.dart';
 import 'package:cobe_task/user.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

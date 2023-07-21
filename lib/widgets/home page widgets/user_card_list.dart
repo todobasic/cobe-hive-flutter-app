@@ -1,4 +1,4 @@
-import 'package:cobe_task/providers/filtered_users_provider.dart';
+import 'package:cobe_task/providers/home%20page%20providers/filtered_users_provider.dart';
 import 'package:cobe_task/user_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

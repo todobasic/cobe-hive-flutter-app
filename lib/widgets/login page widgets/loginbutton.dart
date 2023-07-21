@@ -12,12 +12,12 @@ class LoginButton extends StatelessWidget {
       height: 65,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-            primary: Colors.deepOrange,
+            backgroundColor: Colors.deepOrange,
             shadowColor: const Color.fromRGBO(252, 68, 2, 0.31),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
             )),
-        onPressed: () {},
+        onPressed: () => Navigator.of(context).pushReplacementNamed('/home'),
         child: const Text(
           'Login',
           style: TextStyle(
