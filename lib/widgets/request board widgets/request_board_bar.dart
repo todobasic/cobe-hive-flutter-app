@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ManageRequestsBar extends StatelessWidget {
-  const ManageRequestsBar({
+class RequestBoardBar extends StatelessWidget {
+  const RequestBoardBar({
     super.key,
   });
 
@@ -11,19 +11,21 @@ class ManageRequestsBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         const Text(
-          'Manage Requests',
+          'Pending',
           style: TextStyle(
               fontFamily: 'FilsonPro',
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              fontWeight: FontWeight.w400,
               color: Color(0xff3D4766)),
         ),
         const Spacer(),
         GestureDetector(
           onTap: () => Navigator.of(context).pushNamed('/request-board'),
           child: const Text(
-            'See all',
+            'See approved',
             style: TextStyle(
+              fontStyle: FontStyle.normal,
+              fontWeight: FontWeight.w500,
               fontFamily: 'FilsonPro',
               fontSize: 15,
               color: Colors.deepOrange,
