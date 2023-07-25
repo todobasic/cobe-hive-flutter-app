@@ -1,4 +1,5 @@
 import 'package:cobe_task/leave_request.dart';
+import 'package:cobe_task/pages/request_details_page.dart';
 import 'package:flutter/material.dart';
 
 class LeaveRequestCard extends StatelessWidget {
@@ -76,7 +77,15 @@ class LeaveRequestCard extends StatelessWidget {
                         ),
                         padding: MaterialStateProperty.all(EdgeInsets.zero),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => RequestDetailsScreen(
+                                leaveRequest: leaveRequest),
+                          ),
+                        );
+                      },
                       child: const Icon(
                         Icons.arrow_forward_sharp,
                         size: 17,

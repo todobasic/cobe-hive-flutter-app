@@ -1,9 +1,8 @@
 import 'package:cobe_task/leave_request.dart';
-import 'package:cobe_task/pages/request_details_page.dart';
 import 'package:flutter/material.dart';
 
-class ApprovedRequestCard extends StatelessWidget {
-  const ApprovedRequestCard({
+class RequestDetailsCard extends StatelessWidget {
+  const RequestDetailsCard({
     super.key,
     required this.leaveRequest,
   });
@@ -17,7 +16,19 @@ class ApprovedRequestCard extends StatelessWidget {
     return Container(
       width: 385,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8), color: Colors.white),
+        borderRadius: BorderRadius.circular(8),
+        color: Colors.white,
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.grey,
+            blurRadius: 5,
+            offset: Offset(
+              6.0,
+              6.0,
+            ),
+          ),
+        ],
+      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
         child: Column(
@@ -50,13 +61,15 @@ class ApprovedRequestCard extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
-                    color: const Color(0xff00BA88),
+                    color: leaveRequest.isApproved
+                        ? const Color(0xff00BA88)
+                        : Colors.amber,
                   ),
-                  child: const Padding(
-                    padding: EdgeInsets.fromLTRB(10, 6, 10, 6),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 6, 10, 6),
                     child: Text(
-                      'Approved',
-                      style: TextStyle(
+                      leaveRequest.isApproved ? 'Approved' : 'Pending',
+                      style: const TextStyle(
                         fontFamily: 'FilsonPro',
                         fontSize: 13,
                         color: Colors.white,
@@ -64,36 +77,6 @@ class ApprovedRequestCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Spacer(),
-                SizedBox(
-                  width: 35,
-                  height: 25,
-                  child: Center(
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                        elevation: MaterialStateProperty.all(0),
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                          const Color(0xffE8EEFA),
-                        ),
-                        padding: MaterialStateProperty.all(EdgeInsets.zero),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => RequestDetailsScreen(
-                                leaveRequest: leaveRequest),
-                          ),
-                        );
-                      },
-                      child: const Icon(
-                        Icons.arrow_forward_sharp,
-                        size: 17,
-                        color: Color(0xff3D4766),
-                      ),
-                    ),
-                  ),
-                )
               ],
             )
           ],

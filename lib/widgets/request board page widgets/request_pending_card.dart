@@ -63,7 +63,11 @@ class RequestPendingCard extends ConsumerWidget {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white, elevation: 0),
-                  onPressed: () {},
+                  onPressed: () {
+                    ref
+                        .read(createdLeaveRequestsProvider.notifier)
+                        .removeRequest(leaveRequest);
+                  },
                   child: const Text(
                     'Reject',
                     style: TextStyle(

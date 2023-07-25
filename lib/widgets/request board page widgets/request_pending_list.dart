@@ -1,5 +1,5 @@
 import 'package:cobe_task/providers/admin%20home%20page%20providers/created_leave_requests_list_provider.dart';
-import 'package:cobe_task/widgets/request%20board%20widgets/request_pending_card.dart';
+import 'package:cobe_task/widgets/request%20board%20page%20widgets/request_pending_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

@@ -1,5 +1,5 @@
 import 'package:cobe_task/leave_request.dart';
-import 'package:cobe_task/widgets/create%20request%20widgets/type_of_leave_list.dart';
+import 'package:cobe_task/widgets/create%20request%20page%20widgets/type_of_leave_list.dart';
 
 abstract class LeaveRequestListTemp {
   static final List<LeaveRequest> leaveRequestList = [

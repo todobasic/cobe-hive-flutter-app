@@ -1,7 +1,7 @@
 import 'package:cobe_task/widgets/home%20page%20widgets/fab_homepage.dart';
-import 'package:cobe_task/widgets/request%20board%20widgets/request_board_bar.dart';
-import 'package:cobe_task/widgets/request%20board%20widgets/request_board_header.dart';
-import 'package:cobe_task/widgets/request%20board%20widgets/request_pending_list.dart';
+import 'package:cobe_task/widgets/request%20board%20page%20widgets/request_board_bar.dart';
+import 'package:cobe_task/widgets/request%20board%20page%20widgets/request_board_header.dart';
+import 'package:cobe_task/widgets/request%20board%20page%20widgets/request_pending_list.dart';
 import 'package:flutter/material.dart';
 
 class RequestBoardScreen extends StatelessWidget {
