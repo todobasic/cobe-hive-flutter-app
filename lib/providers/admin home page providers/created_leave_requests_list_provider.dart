@@ -9,6 +9,11 @@ final createdLeaveRequestsProvider =
 class CreatedLeaveRequestsProvider extends StateNotifier<List<LeaveRequest>> {
   CreatedLeaveRequestsProvider() : super([]);
 
-  void addRequest(LeaveRequest leaveRequest) =>
-      state = [...state, leaveRequest];
+  void addRequest(LeaveRequest leaveRequest) {
+    state = List.from(state)..add(leaveRequest);
+  }
+
+  void removeRequest(LeaveRequest leaveRequest) {
+    state = List.from(state)..remove(leaveRequest);
+  }
 }

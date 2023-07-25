@@ -13,16 +13,17 @@ class RequestBoardBar extends StatelessWidget {
         const Text(
           'Pending',
           style: TextStyle(
-              fontFamily: 'FilsonPro',
-              fontSize: 20,
-              fontWeight: FontWeight.w400,
-              color: Color(0xff3D4766)),
+            fontFamily: 'FilsonPro',
+            fontSize: 20,
+            fontWeight: FontWeight.w400,
+            color: Colors.black,
+          ),
         ),
         const Spacer(),
         GestureDetector(
-          onTap: () => Navigator.of(context).pushNamed('/request-board'),
+          onTap: () => Navigator.of(context).pushNamed('/approved-requests'),
           child: const Text(
-            'See approved',
+            'See Approved',
             style: TextStyle(
               fontStyle: FontStyle.normal,
               fontWeight: FontWeight.w500,
@@ -31,7 +32,7 @@ class RequestBoardBar extends StatelessWidget {
               color: Colors.deepOrange,
             ),
           ),
-        )
+        ),
       ],
     );
   }

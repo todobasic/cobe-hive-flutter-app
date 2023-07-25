@@ -1,4 +1,5 @@
 import 'package:cobe_task/pages/admin_home_page.dart';
+import 'package:cobe_task/pages/approved_requests_page.dart';
 import 'package:cobe_task/pages/create_request_page.dart';
 import 'package:cobe_task/pages/login_page.dart';
 import 'package:cobe_task/pages/request_board_page.dart';
@@ -15,6 +16,7 @@ void main() {
         '/request': (context) => const CreateRequestScreen(),
         '/login-screen': (context) => const LoginScreen(),
         '/request-board': (context) => const RequestBoardScreen(),
+        '/approved-requests': (context) => const ApprovedRequestsScreen(),
       },
     ),
   ));

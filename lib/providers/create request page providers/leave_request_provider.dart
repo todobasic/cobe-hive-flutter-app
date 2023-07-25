@@ -16,5 +16,6 @@ final leaveRequestProvider = Provider.autoDispose((ref) {
     endDate: DateTime.now(),
     reason: leaveReason,
     viewPermission: viewPermission,
+    isApproved: false,
   );
 });

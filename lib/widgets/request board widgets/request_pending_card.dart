@@ -1,7 +1,10 @@
 import 'package:cobe_task/leave_request.dart';
+import 'package:cobe_task/providers/admin%20home%20page%20providers/created_leave_requests_list_provider.dart';
+import 'package:cobe_task/providers/approved%20requests%20page%20providers/approved_requests_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class RequestPendingCard extends StatelessWidget {
+class RequestPendingCard extends ConsumerWidget {
   const RequestPendingCard({
     super.key,
     required this.leaveRequest,
@@ -10,7 +13,7 @@ class RequestPendingCard extends StatelessWidget {
   final LeaveRequest leaveRequest;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final date =
         '${leaveRequest.startDate.month}.${leaveRequest.startDate.day} - ${leaveRequest.endDate.month}.${leaveRequest.endDate.day + 10}';
 
@@ -71,7 +74,49 @@ class RequestPendingCard extends StatelessWidget {
                 ),
                 const SizedBox(width: 20),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    ref
+                        .read(approvedRequestsProvider.notifier)
+                        .approveRequest(leaveRequest);
+                    ref
+                        .read(createdLeaveRequestsProvider.notifier)
+                        .removeRequest(leaveRequest);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: const Row(
+                          children: [
+                            Icon(
+                              Icons.check_sharp,
+                              color: Colors.green,
+                            ),
+                            SizedBox(width: 20),
+                            Text(
+                              'Approved',
+                              style: TextStyle(
+                                fontFamily: 'FilsonPro',
+                                color: Color(0xff3D4766),
+                                fontSize: 15,
+                              ),
+                            ),
+                          ],
+                        ),
+                        backgroundColor: Colors.white,
+                        action: SnackBarAction(
+                          label: 'Undo',
+                          onPressed: () {},
+                        ),
+                        behavior: SnackBarBehavior.floating,
+                        margin: const EdgeInsets.fromLTRB(30, 20, 30, 20),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          side: const BorderSide(
+                            color: Colors.green,
+                            width: 2,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.deepOrange,
                     shadowColor: const Color.fromRGBO(252, 68, 2, 0.31),
