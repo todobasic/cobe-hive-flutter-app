@@ -10,11 +10,12 @@ final leaveRequestProvider = Provider.autoDispose((ref) {
   final viewPermission = ref.watch(viewPermissionProvider);
 
   return LeaveRequest(
-    user: 'Marko',
+    user: 'Marko Markovic',
     leaveType: leaveType,
     startDate: DateTime.now(),
     endDate: DateTime.now(),
     reason: leaveReason,
     viewPermission: viewPermission,
+    isApproved: false,
   );
 });

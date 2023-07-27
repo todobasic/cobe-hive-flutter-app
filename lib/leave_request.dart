@@ -7,6 +7,7 @@ class LeaveRequest {
   DateTime endDate;
   String reason;
   ViewPermission viewPermission;
+  bool isApproved;
 
   LeaveRequest({
     required this.user,
@@ -15,5 +16,6 @@ class LeaveRequest {
     required this.endDate,
     required this.reason,
     required this.viewPermission,
+    required this.isApproved,
   });
 }

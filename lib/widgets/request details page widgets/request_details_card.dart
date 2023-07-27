@@ -1,9 +1,8 @@
 import 'package:cobe_task/leave_request.dart';
-import 'package:cobe_task/pages/request_details_page.dart';
 import 'package:flutter/material.dart';
 
-class LeaveRequestCard extends StatelessWidget {
-  const LeaveRequestCard({
+class RequestDetailsCard extends StatelessWidget {
+  const RequestDetailsCard({
     super.key,
     required this.leaveRequest,
   });
@@ -14,11 +13,22 @@ class LeaveRequestCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final date =
         '${leaveRequest.startDate.month}.${leaveRequest.startDate.day} - ${leaveRequest.endDate.month}.${leaveRequest.endDate.day + 10}';
-
     return Container(
-      width: 325,
+      width: 385,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8), color: Colors.white),
+        borderRadius: BorderRadius.circular(8),
+        color: Colors.white,
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.grey,
+            blurRadius: 5,
+            offset: Offset(
+              6.0,
+              6.0,
+            ),
+          ),
+        ],
+      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
         child: Column(
@@ -50,13 +60,16 @@ class LeaveRequestCard extends StatelessWidget {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: Colors.amber),
-                  child: const Padding(
-                    padding: EdgeInsets.fromLTRB(10, 6, 10, 6),
+                    borderRadius: BorderRadius.circular(8),
+                    color: leaveRequest.isApproved
+                        ? const Color(0xff00BA88)
+                        : Colors.amber,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 6, 10, 6),
                     child: Text(
-                      'Pending',
-                      style: TextStyle(
+                      leaveRequest.isApproved ? 'Approved' : 'Pending',
+                      style: const TextStyle(
                         fontFamily: 'FilsonPro',
                         fontSize: 13,
                         color: Colors.white,
@@ -64,36 +77,6 @@ class LeaveRequestCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Spacer(),
-                SizedBox(
-                  width: 35,
-                  height: 25,
-                  child: Center(
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                        elevation: MaterialStateProperty.all(0),
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                          const Color(0xffE8EEFA),
-                        ),
-                        padding: MaterialStateProperty.all(EdgeInsets.zero),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => RequestDetailsScreen(
-                                leaveRequest: leaveRequest),
-                          ),
-                        );
-                      },
-                      child: const Icon(
-                        Icons.arrow_forward_sharp,
-                        size: 17,
-                        color: Color(0xff3D4766),
-                      ),
-                    ),
-                  ),
-                )
               ],
             )
           ],

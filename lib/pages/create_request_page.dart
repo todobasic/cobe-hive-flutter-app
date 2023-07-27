@@ -1,9 +1,9 @@
-import 'package:cobe_task/widgets/create%20request%20widgets/create_request_button.dart';
-import 'package:cobe_task/widgets/create%20request%20widgets/create_request_header.dart';
-import 'package:cobe_task/widgets/create%20request%20widgets/date_picker.dart';
-import 'package:cobe_task/widgets/create%20request%20widgets/permission_selectors.dart';
-import 'package:cobe_task/widgets/create%20request%20widgets/reason_text_field.dart';
-import 'package:cobe_task/widgets/create%20request%20widgets/type_of_leave_selector.dart';
+import 'package:cobe_task/widgets/create%20request%20page%20widgets/create_request_button.dart';
+import 'package:cobe_task/widgets/create%20request%20page%20widgets/create_request_header.dart';
+import 'package:cobe_task/widgets/create%20request%20page%20widgets/date_picker.dart';
+import 'package:cobe_task/widgets/create%20request%20page%20widgets/permission_selectors.dart';
+import 'package:cobe_task/widgets/create%20request%20page%20widgets/reason_text_field.dart';
+import 'package:cobe_task/widgets/create%20request%20page%20widgets/type_of_leave_selector.dart';
 import 'package:flutter/material.dart';
 
 class CreateRequestScreen extends StatelessWidget {

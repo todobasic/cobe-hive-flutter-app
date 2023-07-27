@@ -69,6 +69,7 @@ flutter:
     - assets/icons/status.svg
     - assets/images/userprofilepic.jpg
     - assets/images/listprofilepic.png
+    - assets/images/Ink.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

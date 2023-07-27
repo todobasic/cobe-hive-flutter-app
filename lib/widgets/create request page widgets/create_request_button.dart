@@ -25,7 +25,7 @@ class CreateRequestButtons extends ConsumerWidget {
                   .addRequest(request);
               showDialog(
                 context: context,
-                builder: (context) => const ShowAlertDialog(),
+                builder: (context) => const _ShowAlertDialog(),
               );
               debugPrint('$newRequest');
             },
@@ -64,10 +64,8 @@ class CreateRequestButtons extends ConsumerWidget {
   }
 }
 
-class ShowAlertDialog extends StatelessWidget {
-  const ShowAlertDialog({
-    super.key,
-  });
+class _ShowAlertDialog extends StatelessWidget {
+  const _ShowAlertDialog();
 
   @override
   Widget build(BuildContext context) {

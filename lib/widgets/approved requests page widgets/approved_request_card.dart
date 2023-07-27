@@ -2,8 +2,8 @@ import 'package:cobe_task/leave_request.dart';
 import 'package:cobe_task/pages/request_details_page.dart';
 import 'package:flutter/material.dart';
 
-class LeaveRequestCard extends StatelessWidget {
-  const LeaveRequestCard({
+class ApprovedRequestCard extends StatelessWidget {
+  const ApprovedRequestCard({
     super.key,
     required this.leaveRequest,
   });
@@ -14,9 +14,8 @@ class LeaveRequestCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final date =
         '${leaveRequest.startDate.month}.${leaveRequest.startDate.day} - ${leaveRequest.endDate.month}.${leaveRequest.endDate.day + 10}';
-
     return Container(
-      width: 325,
+      width: 385,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8), color: Colors.white),
       child: Padding(
@@ -50,12 +49,13 @@ class LeaveRequestCard extends StatelessWidget {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: Colors.amber),
+                    borderRadius: BorderRadius.circular(8),
+                    color: const Color(0xff00BA88),
+                  ),
                   child: const Padding(
                     padding: EdgeInsets.fromLTRB(10, 6, 10, 6),
                     child: Text(
-                      'Pending',
+                      'Approved',
                       style: TextStyle(
                         fontFamily: 'FilsonPro',
                         fontSize: 13,
