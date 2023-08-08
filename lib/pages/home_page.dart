@@ -1,25 +1,25 @@
+// ignore_for_file: avoid_print, must_call_super
+
+import 'package:cobe_task/providers/home%20page%20providers/filtered_users_provider.dart';
 import 'package:cobe_task/widgets/home%20page%20widgets/fab_homepage.dart';
 import 'package:cobe_task/widgets/home%20page%20widgets/filterslist.dart';
 import 'package:cobe_task/widgets/home%20page%20widgets/homebar.dart';
 import 'package:cobe_task/widgets/home%20page%20widgets/searchbar.dart';
-import 'package:cobe_task/widgets/home%20page%20widgets/user_card_list.dart';
+import 'package:cobe_task/widgets/home%20page%20widgets/users_list_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  @override
-  void initState() {
-    super.initState();
-  }
+class HomeScreen extends ConsumerWidget {
+  const HomeScreen({
+    super.key,
+  });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final userList = ref.watch(filteredUsersProvider);
+
+    print('userList: $userList');
+
     return Scaffold(
       body: Container(
         color: const Color(0xfff2f7ff),
@@ -43,11 +43,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: FiltersList(),
               ),
             ),
-            const UserCardList(),
+            Expanded(
+              child: UsersListView(userList: userList),
+            ),
           ],
         ),
       ),
-      floatingActionButton: const FAB_homepage(),
+      floatingActionButton: const FabHomepage(),
     );
   }
 }

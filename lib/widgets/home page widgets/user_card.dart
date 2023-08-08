@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:cobe_task/user.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class UserCard extends StatelessWidget {
-  final UserModel user;
   const UserCard({super.key, required this.user});
+
+  final user;
 
   @override
   Widget build(BuildContext context) {
@@ -23,40 +24,47 @@ class UserCard extends StatelessWidget {
             children: [
               Stack(
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: Image.asset(
-                      'assets/images/selfie.jpg',
-                      height: 75.0,
-                      width: 75.0,
-                      fit: BoxFit.fill,
+                  CircleAvatar(
+                    radius: 40,
+                    child: ClipOval(
+                      child: Image.network(
+                        'http://localhost:8080${user.imageUrl}',
+                      ),
                     ),
                   ),
+                  if (user.isOnline(user))
+                    Positioned(
+                      right: 5,
+                      top: 5,
+                      child: SvgPicture.asset(
+                        'assets/icons/status.svg',
+                      ),
+                    ),
                 ],
               ),
               const SizedBox(
                 width: 10,
               ),
-              const Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Text(
-                    '',
-                    style: TextStyle(
+                    '${user.name ?? ''} ${user.surname}',
+                    style: const TextStyle(
                         fontFamily: 'FilsonPro',
                         fontWeight: FontWeight.bold,
                         fontSize: 20),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Text(
-                    '',
-                    style:
-                        TextStyle(fontFamily: 'FilsonPro', color: Colors.grey),
+                    user.role,
+                    style: const TextStyle(
+                        fontFamily: 'FilsonPro', color: Colors.grey),
                   ),
                 ],
               )

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 // ignore: camel_case_types
-class FAB_homepage extends StatelessWidget {
-  const FAB_homepage({
+class FabHomepage extends StatelessWidget {
+  const FabHomepage({
     super.key,
   });
 

@@ -10,7 +10,7 @@ class RequestBoardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: const FAB_homepage(),
+      floatingActionButton: const FabHomepage(),
       body: Container(
         color: const Color(0xfff2f7ff),
         child: const Column(
