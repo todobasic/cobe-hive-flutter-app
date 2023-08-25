@@ -22,7 +22,7 @@ class UserListNotifier extends StateNotifier<ApiState<List<UserModel>>> {
       if (showLoading) {
         const ApiState.loading(null);
       }
-      final userList = await userRepository.getUsers();
+      final userList = await userRepository.getUsersAnyhow();
       state = ApiState.success(userList);
     } catch (e) {
       state = ApiState.error(e.toString());
