@@ -15,7 +15,7 @@ class RequestPendingCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final date =
-        '${leaveRequest.startDate.month}.${leaveRequest.startDate.day} - ${leaveRequest.endDate.month}.${leaveRequest.endDate.day + 10}';
+        '${leaveRequest.startDate!.month}.${leaveRequest.startDate!.day} - ${leaveRequest.endDate!.month}.${leaveRequest.endDate!.day + 10}';
 
     return Container(
       width: 390,
@@ -27,7 +27,7 @@ class RequestPendingCard extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              leaveRequest.leaveType,
+              leaveRequest.leaveType!,
               style: const TextStyle(
                 fontFamily: 'FilsonPro',
                 fontSize: 17,
@@ -37,7 +37,7 @@ class RequestPendingCard extends ConsumerWidget {
             ),
             const SizedBox(height: 5),
             Text(
-              '${leaveRequest.endDate.day + 10} days · $date ${leaveRequest.startDate.year}',
+              '${leaveRequest.endDate!.day + 10} days · $date ${leaveRequest.startDate!.year}',
               textAlign: TextAlign.left,
               style: const TextStyle(
                 fontFamily: 'FilsonPro',

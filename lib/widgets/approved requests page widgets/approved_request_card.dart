@@ -13,7 +13,7 @@ class ApprovedRequestCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final date =
-        '${leaveRequest.startDate.month}.${leaveRequest.startDate.day} - ${leaveRequest.endDate.month}.${leaveRequest.endDate.day + 10}';
+        '${leaveRequest.startDate!.month}.${leaveRequest.startDate!.day} - ${leaveRequest.endDate!.month}.${leaveRequest.endDate!.day + 10}';
     return Container(
       width: 385,
       decoration: BoxDecoration(
@@ -24,7 +24,7 @@ class ApprovedRequestCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              leaveRequest.leaveType,
+              leaveRequest.leaveType!,
               style: const TextStyle(
                 fontFamily: 'FilsonPro',
                 fontSize: 17,
@@ -34,7 +34,7 @@ class ApprovedRequestCard extends StatelessWidget {
             ),
             const SizedBox(height: 5),
             Text(
-              '${leaveRequest.endDate.day + 10} days · $date ${leaveRequest.startDate.year}',
+              '${leaveRequest.endDate!.day + 10} days · $date ${leaveRequest.startDate!.year}',
               textAlign: TextAlign.left,
               style: const TextStyle(
                 fontFamily: 'FilsonPro',

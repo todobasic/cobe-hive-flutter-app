@@ -6,12 +6,13 @@ import 'package:cobe_task/widgets/home%20page%20widgets/homebar.dart';
 import 'package:cobe_task/widgets/home%20page%20widgets/searchbar.dart';
 import 'package:cobe_task/widgets/home%20page%20widgets/user_card_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class AdminHomeScreen extends StatelessWidget {
+class AdminHomeScreen extends ConsumerWidget {
   const AdminHomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       floatingActionButton: const FabHomepage(),
       body: Container(

@@ -5,7 +5,7 @@ import 'package:cobe_task/widgets/home%20page%20widgets/fab_homepage.dart';
 import 'package:cobe_task/widgets/home%20page%20widgets/filterslist.dart';
 import 'package:cobe_task/widgets/home%20page%20widgets/homebar.dart';
 import 'package:cobe_task/widgets/home%20page%20widgets/searchbar.dart';
-import 'package:cobe_task/widgets/home%20page%20widgets/users_list_view.dart';
+import 'package:cobe_task/widgets/home%20page%20widgets/user_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -21,6 +21,7 @@ class HomeScreen extends ConsumerWidget {
     print('userList: $userList');
 
     return Scaffold(
+      floatingActionButton: const FabHomepage(),
       body: Container(
         color: const Color(0xfff2f7ff),
         child: Column(
@@ -43,13 +44,12 @@ class HomeScreen extends ConsumerWidget {
                 child: FiltersList(),
               ),
             ),
-            Expanded(
-              child: UsersListView(userList: userList),
+            const Expanded(
+              child: UserCardList(),
             ),
           ],
         ),
       ),
-      floatingActionButton: const FabHomepage(),
     );
   }
 }

@@ -13,7 +13,7 @@ final leaveRequestProvider = Provider.autoDispose((ref) {
     user: 'Marko Markovic',
     leaveType: leaveType,
     startDate: DateTime.now(),
-    endDate: DateTime.now(),
+    endDate: DateTime.now().add(const Duration(days: 1)),
     reason: leaveReason,
     viewPermission: viewPermission,
     isApproved: false,

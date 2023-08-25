@@ -1,4 +1,4 @@
-import 'package:cobe_task/providers/admin%20home%20page%20providers/created_leave_requests_list_provider.dart';
+import 'package:cobe_task/networking/absence_list_provider.dart';
 import 'package:cobe_task/widgets/admin%20home%20page%20widgets/leave_request_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,7 +10,7 @@ class LeaveRequestList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final createdLeaveRequestList = ref.watch(createdLeaveRequestsProvider);
+    final createdLeaveRequestList = ref.watch(absenceListPendingProvider);
     if (createdLeaveRequestList.isEmpty) {
       return const _NoRequests();
     }

@@ -21,7 +21,7 @@ class RequestDetailsButtons extends ConsumerWidget {
           width: 100,
           height: 45,
           child: ElevatedButton(
-            onPressed: leaveRequest.isApproved
+            onPressed: leaveRequest.isApproved!
                 ? null
                 : () {
                     ref
@@ -55,7 +55,7 @@ class RequestDetailsButtons extends ConsumerWidget {
                 borderRadius: BorderRadius.circular(8),
               ),
             ),
-            onPressed: leaveRequest.isApproved
+            onPressed: leaveRequest.isApproved!
                 ? null
                 : () {
                     ref

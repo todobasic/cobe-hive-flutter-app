@@ -1,5 +1,6 @@
+import 'package:cobe_task/networking/absence_list_provider.dart';
+import 'package:cobe_task/providers/create%20request%20page%20providers/create_request_notifier.dart';
 import 'package:cobe_task/providers/create%20request%20page%20providers/leave_request_provider.dart';
-import 'package:cobe_task/providers/admin%20home%20page%20providers/created_leave_requests_list_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -8,10 +9,58 @@ class CreateRequestButtons extends ConsumerWidget {
     super.key,
   });
 
+  _showSuccesDialog(BuildContext context) => showDialog(
+        context: context,
+        builder: (context) => const _SuccessDialog(),
+      );
+
+  /// TODO: Show error
+
+  _showErrorDialog(BuildContext context) => showDialog(
+        context: context,
+        builder: (context) => const Dialog(
+          child: SizedBox(
+            height: 100,
+            width: 200,
+            child: Text('Error happened.'),
+          ),
+        ),
+      );
+
+  /// TODO: Show loading
+
+  _showLoadingDialog(BuildContext context) => showDialog(
+        context: context,
+        builder: (context) => const Dialog(
+          child: SizedBox(
+            height: 100,
+            width: 200,
+            child: CircularProgressIndicator(),
+          ),
+        ),
+      );
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final request = ref.watch(leaveRequestProvider);
-    final newRequest = ref.watch(createdLeaveRequestsProvider);
+    /*
+           showDialog(
+                context: context,
+                builder: (context) => const _ShowAlertDialog(),
+              );
+    */
+
+    ref.listen(createRequestNotiferProvider, (_, state) {
+      state.when(
+        initial: () {},
+        loading: (_) => _showLoadingDialog(context),
+        error: (e) => _showErrorDialog(context),
+        success: (_) {
+          Navigator.of(context).pop();
+          _showSuccesDialog(context);
+        },
+      );
+    });
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -19,16 +68,10 @@ class CreateRequestButtons extends ConsumerWidget {
           width: 100,
           height: 45,
           child: ElevatedButton(
-            onPressed: () {
-              ref
-                  .read(createdLeaveRequestsProvider.notifier)
-                  .addRequest(request);
-              showDialog(
-                context: context,
-                builder: (context) => const _ShowAlertDialog(),
-              );
-              debugPrint('$newRequest');
-            },
+            onPressed: () =>
+                ref.read(createRequestNotiferProvider.notifier).createRequest(
+                      ref.read(leaveRequestProvider),
+                    ),
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.deepOrange,
               shadowColor: const Color.fromRGBO(252, 68, 2, 0.31),
@@ -64,11 +107,14 @@ class CreateRequestButtons extends ConsumerWidget {
   }
 }
 
-class _ShowAlertDialog extends StatelessWidget {
-  const _ShowAlertDialog();
+class _SuccessDialog extends ConsumerWidget {
+  const _SuccessDialog();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(
+    BuildContext context,
+    WidgetRef ref,
+  ) {
     return AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       actionsAlignment: MainAxisAlignment.center,
@@ -99,7 +145,12 @@ class _ShowAlertDialog extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
                   side: const BorderSide(color: Colors.deepOrange))),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () {
+            ref
+                .read(absenceListProvider.notifier)
+                .getAbsences(showLoading: false);
+            Navigator.pop(context);
+          },
           child: const Text(
             'Okay',
             style: TextStyle(color: Colors.deepOrange, fontFamily: 'FilsonPro'),
