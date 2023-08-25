@@ -37,7 +37,7 @@ class RequestDetailsReason extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(left: 20),
                 child: Text(
-                  leaveRequest.reason,
+                  leaveRequest.reason.toString(),
                   style: const TextStyle(
                     fontFamily: 'FilsonPro',
                     fontSize: 15,

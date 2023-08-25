@@ -1,12 +1,26 @@
+import 'package:hive_flutter/hive_flutter.dart';
+
+part 'user_model.g.dart';
+
+@HiveType(typeId: 0)
 class UserModel {
+  @HiveField(0)
   String? id;
+  @HiveField(1)
   String? name;
+  @HiveField(2)
   String? surname;
+  @HiveField(3)
   String? role;
+  @HiveField(4)
   late List<String> statusList = [];
+  @HiveField(5)
   bool? isAdmin;
+  @HiveField(6)
   String? email;
+  @HiveField(7)
   String? phone;
+  @HiveField(8)
   String? imageUrl;
 
   UserModel({

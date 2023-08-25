@@ -1,26 +1,23 @@
 import 'package:cobe_task/networking/user_login.dart';
 import 'package:cobe_task/widgets/login%20page%20widgets/cobelogo.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-void main() {
-  runApp(const MaterialApp(
-    home: LoginScreen(),
-  ));
-}
+class LoginScreen extends ConsumerWidget {
+  LoginScreen({super.key});
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
-
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen(loginNotifierProvider, (_, state) {
+      if (state is SuccessState) {
+        Navigator.pushNamed(context, '/home');
+      }
+      if (state is FailureState) {}
+    });
+
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -129,10 +126,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     )),
-                onPressed: () {
-                  signIn(_emailController.text, _passwordController.text);
-                  Navigator.pushNamed(context, '/home');
-                },
+                onPressed: () => ref
+                    .read(loginNotifierProvider.notifier)
+                    .signIn(_emailController.text, _passwordController.text),
                 child: const Text(
                   'Login',
                   style: TextStyle(

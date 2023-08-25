@@ -22,20 +22,20 @@ class RequestDetailsBar extends StatelessWidget {
             fit: BoxFit.fill,
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(left: 15),
+        const Padding(
+          padding: EdgeInsets.only(left: 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                leaveRequest.user,
-                style: const TextStyle(
+                'Nepoznati korisnik',
+                style: TextStyle(
                     fontFamily: 'FilsonPro',
                     fontSize: 25,
                     color: Color(0xff3D4766)),
               ),
-              const SizedBox(height: 5),
-              const Text(
+              SizedBox(height: 5),
+              Text(
                 'iOS Developer',
                 style: TextStyle(
                   fontFamily: 'FilsonPro',

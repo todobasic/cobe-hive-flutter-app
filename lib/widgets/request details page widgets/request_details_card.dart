@@ -12,7 +12,7 @@ class RequestDetailsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final date =
-        '${leaveRequest.startDate.month}.${leaveRequest.startDate.day} - ${leaveRequest.endDate.month}.${leaveRequest.endDate.day + 10}';
+        '${leaveRequest.startDate!.month}.${leaveRequest.startDate!.day} - ${leaveRequest.endDate!.month}.${leaveRequest.endDate!.day + 10}';
     return Container(
       width: 385,
       decoration: BoxDecoration(
@@ -35,7 +35,7 @@ class RequestDetailsCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              leaveRequest.leaveType,
+              leaveRequest.leaveType!,
               style: const TextStyle(
                 fontFamily: 'FilsonPro',
                 fontSize: 17,
@@ -45,7 +45,7 @@ class RequestDetailsCard extends StatelessWidget {
             ),
             const SizedBox(height: 5),
             Text(
-              '${leaveRequest.endDate.day + 10} days · $date ${leaveRequest.startDate.year}',
+              '${leaveRequest.endDate!.day + 10} days · $date ${leaveRequest.startDate!.year}',
               textAlign: TextAlign.left,
               style: const TextStyle(
                 fontFamily: 'FilsonPro',
@@ -61,14 +61,14 @@ class RequestDetailsCard extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
-                    color: leaveRequest.isApproved
+                    color: leaveRequest.isApproved!
                         ? const Color(0xff00BA88)
                         : Colors.amber,
                   ),
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(10, 6, 10, 6),
                     child: Text(
-                      leaveRequest.isApproved ? 'Approved' : 'Pending',
+                      leaveRequest.isApproved! ? 'Approved' : 'Pending',
                       style: const TextStyle(
                         fontFamily: 'FilsonPro',
                         fontSize: 13,

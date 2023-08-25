@@ -28,7 +28,7 @@ class UserCard extends StatelessWidget {
                     radius: 40,
                     child: ClipOval(
                       child: Image.network(
-                        'http://localhost:8080${user.imageUrl}',
+                        'http://10.0.2.2:8080${user.imageUrl}',
                       ),
                     ),
                   ),

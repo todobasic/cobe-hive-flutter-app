@@ -1,37 +1,38 @@
 // ignore_for_file: avoid_print
+import 'package:cobe_task/networking/user_list_provider.dart';
 import 'package:cobe_task/providers/home%20page%20providers/search_term_provider.dart';
 import 'package:cobe_task/providers/home%20page%20providers/selected_chip_provider.dart';
-import 'package:cobe_task/networking/users_provider.dart';
-import 'package:cobe_task/user.dart';
+import 'package:cobe_task/user_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final filteredUsersProvider = Provider<List<UserModel>>((ref) {
+final filteredUsersProvider = FutureProvider<List<UserModel>>((ref) async {
   final searchTerm = ref.watch(searchTermProvider);
   final selectedChips = ref.watch(selectedChipsNotifierProvider);
-  final allUsersAsyncValue = ref.watch(allUsersProvider);
-
-  //final List<UserModel> filteredUsers = [];
+  final userList = ref.watch(userListProvider);
 
   print('Search term: $searchTerm');
   print('Selected chips: $selectedChips');
-  print('All users: $allUsersAsyncValue');
+  print('All users: $userList');
 
-  final List<UserModel> filteredUsers = allUsersAsyncValue.when(
-    data: (data) {
-      final allUsers = data;
-      // Print allUsers to check the received user data from the API
-      print('All users: $allUsers');
+  return userList.when(
+      initial: () => [],
+      loading: ((dataMaybe) {
+        return [];
+      }),
+      success: ((data) {
+        final List<UserModel> filteredUsers = [];
 
-      return allUsers
-          .where((user) =>
-              _isSearchTermSatisfied(searchTerm, user) &&
-              _isChipSatisfied(selectedChips, user.statusList))
-          .toList();
-    },
-    loading: () => [], // Return an empty list while loading
-    error: (error, stackTrace) => [], // Return an empty list on error
-  );
-  return filteredUsers;
+        for (var user in data) {
+          if (_isSearchTermSatisfied(searchTerm, user) &&
+              _isChipSatisfied(selectedChips, user.statusList)) {
+            filteredUsers.add(user);
+          }
+        }
+        return filteredUsers;
+      }),
+      error: (error) {
+        return [];
+      });
 });
 
 bool _isChipSatisfied(List<String> selectedChips, List<String> statusList) {
